@@ -1,0 +1,67 @@
+<h1>TABLE VIEW</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>  </th>
+      <th>Urgent</th>
+      <th>Not Urgent</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Important</td>
+      <td class="success">
+        <% @tasks.each do |task| %>
+          <% if task.importance == "Important" %>
+            <% if task.urgency == "Urgent" %>
+              <li>
+                <%= task.name %>
+              </li> 
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+      <td class="active">
+        <% @tasks.each do |task| %>
+          <% if task.importance == "Important" %>
+            <% if task.urgency == "Not Urgent" %>
+              <li>
+                <%= task.name %>
+              </li> 
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Not Important</td>
+      <td class="warning">
+        <% @tasks.each do |task| %>
+          <% if task.importance == "Not Important" %>
+            <% if task.urgency == "Urgent" %>
+              <li>
+                <%= task.name %>
+              </li> 
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+      <td class="danger">
+        <% @tasks.each do |task| %>
+          <% if task.importance == "Not Important" %>
+            <% if task.urgency == "Not Urgent" %>
+              <li>
+                <%= task.name %>
+              </li> 
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+
